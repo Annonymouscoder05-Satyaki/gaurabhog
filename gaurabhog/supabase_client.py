@@ -12,13 +12,13 @@ supabase = create_client(
 
 
 
-def upload_course_image(file):
+def upload_bhog_image(file):
     if not file or file.filename == '':
         return None
 
     ext = file.filename.rsplit(".", 1)[1].lower()
     unique_name = f"{uuid.uuid4()}.{ext}"
-    file_path = f"courses/{unique_name}"
+    file_path = f"bhog/{unique_name}"
 
     file_bytes = file.read()
 
@@ -33,13 +33,13 @@ def upload_course_image(file):
     return supabase.storage.from_("images").get_public_url(file_path)
 
 
-def delete_course_image(image_url):
+def delete_bhog_image(image_url):
     """
-    Deletes image from images/courses using stored URL
+    Deletes image from images/bhog using stored URL
     """
     # Extract path after bucket
     # example url:
-    # .../object/public/images/courses/abc123.jpg
-    path = "courses/" + image_url.split("/courses/")[1]
+    # .../object/public/images/bhog/abc123.jpg
+    path = "bhog/" + image_url.split("/bhog/")[1]
 
     supabase.storage.from_("images").remove([path])
