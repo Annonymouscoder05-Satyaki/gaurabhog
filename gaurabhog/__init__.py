@@ -38,5 +38,13 @@ def create_app(test_config=None):
     from . import contact
     app.register_blueprint(contact.bp)
 
+    return app
+
+def get_params():
+    json_path = os.path.join(os.curdir, 'config', 'config.json')
+    with open(json_path, 'r') as c:
+        params = json.load(c)["params"]
+    return params
+
 
     
