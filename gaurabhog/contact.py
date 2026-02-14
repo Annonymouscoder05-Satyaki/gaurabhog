@@ -36,7 +36,7 @@ def contact():
         api_instance = sib_api_v3_sdk.TransactionalEmailsApi(ApiClient(configuration))
 
         email_to_admin = sib_api_v3_sdk.SendSmtpEmail(
-            sender={"name": "GauraVaani(noreply)", "email": os.getenv('verified_sender')},
+            sender={"name": "gaurabhog(noreply)", "email": os.getenv('VERIFIED_SENDER')},
             to=[{"email": os.getenv('ADMIN_EMAIL'), "name": "Admin"}],
             subject=subject,
             html_content=f"""
