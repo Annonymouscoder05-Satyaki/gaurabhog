@@ -42,4 +42,4 @@ def delete_bhog_image(image_url):
     # .../object/public/images/bhog/abc123.jpg
     path = "bhog/" + image_url.split("/bhog/")[1]
 
-    supabase.storage.from_("images").remove([path])
+    supabase.storage.from_("images").remove([path]) 
