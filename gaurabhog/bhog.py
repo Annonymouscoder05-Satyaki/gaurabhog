@@ -16,7 +16,7 @@ def index():
     bhog = query_all(
         'SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image'
         ' FROM bhog'
-        ' ORDER BY cid DESC'
+        ' ORDER BY bid DESC'
     )
     return render_template('bhog/index.html', bhog=bhog, params=params)
 
