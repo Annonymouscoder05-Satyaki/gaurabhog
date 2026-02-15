@@ -66,13 +66,13 @@ def manage_bhog():
     return render_template('admin/bhog/manage_bhog.html', bhog=bhog, params=params)
 
 
-@bp.route('/delete_bhog/<int:cid>')
+@bp.route('/delete_bhog/<int:bid>')
 @admin_required
-def delete_bhog(cid):
+def delete_bhog(bid):
     # Get bhog image URL before deleting record
     bhog = query_one(
-        'SELECT bhog_image FROM bhog WHERE cid = %s',
-        (cid,)
+        'SELECT bhog_image FROM bhog WHERE bid = %s',
+        (bid,)
     )
 
     # ✅ Delete image from Supabase if it exists
@@ -106,10 +106,10 @@ def add_bhog():
     return render_template('admin/bhog/add_bhog.html', params=params)
 
 
-@bp.route('/edit_bhog/<int:cid>', methods=('GET', 'POST'))
+@bp.route('/edit_bhog/<int:bid>', methods=('GET', 'POST'))
 @admin_required
-def edit_bhog(cid):
-    bhog = query_one('SELECT cid, bhog_id, bhog_title, bhog_description, bhog_image FROM bhog WHERE cid = %s', (cid,))
+def edit_bhog(bid):
+    bhog = query_one('SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image FROM bhog WHERE cid = %s', (bid,))
     if request.method == 'POST':
         bhog_id = request.form['bhog_id']
         bhog_title = request.form['bhog_title']
@@ -123,8 +123,8 @@ def edit_bhog(cid):
             new_bhog_image = bhog['bhog_image']
 
         query(
-            'UPDATE bhog SET bhog_id = %s, bhog_title = %s, bhog_description = %s, bhog_image = %s WHERE cid = %s',
-            (bhog_id, bhog_title, bhog_description, new_bhog_image, cid)
+            'UPDATE bhog SET bhog_id = %s, bhog_title = %s, bhog_description = %s, bhog_image = %s WHERE bid = %s',
+            (bhog_id, bhog_title, bhog_description, new_bhog_image, bid)
         )
         flash('bhog updated successfully.')
         return redirect(url_for('admin.manage_bhog'))
