@@ -14,7 +14,7 @@ params = get_params()
 @bp.route('/')
 def index():
     bhog = query_all(
-        'SELECT iid, bhog_id, bhog_title, bhog_description, bhog_image'
+        'SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image'
         ' FROM bhog'
         ' ORDER BY cid DESC'
     )
