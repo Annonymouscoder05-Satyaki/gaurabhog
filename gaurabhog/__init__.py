@@ -38,6 +38,18 @@ def create_app(test_config=None):
     from . import contact
     app.register_blueprint(contact.bp)
 
+    from . import admin
+    app.register_blueprint(admin.bp)
+
+    from . import bhog
+    app.register_blueprint(bhog.bp)
+    app.add_url_rule('/',endpoint='index')
+
+    #route for about page
+    @app.route('/about')
+    def about():
+        return render_template('about.html',params=get_params())
+
     return app
 
 def get_params():
