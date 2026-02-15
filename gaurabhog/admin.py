@@ -62,7 +62,7 @@ def delete_user(user_id):
 @bp.route('/bhog')
 @admin_required
 def manage_bhog():
-    bhog = query_all('SELECT bid, bhog_id, bhog_title, bhog_description FROM bhog ORDER BY cid ASC')
+    bhog = query_all('SELECT bid, bhog_id, bhog_title, bhog_description FROM bhog ORDER BY bid ASC')
     return render_template('admin/bhog/manage_bhog.html', bhog=bhog, params=params)
 
 
@@ -109,7 +109,7 @@ def add_bhog():
 @bp.route('/edit_bhog/<int:bid>', methods=('GET', 'POST'))
 @admin_required
 def edit_bhog(bid):
-    bhog = query_one('SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image FROM bhog WHERE cid = %s', (bid,))
+    bhog = query_one('SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image FROM bhog WHERE bid = %s', (bid,))
     if request.method == 'POST':
         bhog_id = request.form['bhog_id']
         bhog_title = request.form['bhog_title']
