@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}About - {{ params.name }}{% endblock %}
+
+{% block content %}
+
+<div class="about-section mx-auto">
+    <h2 class="section-title text-center mb-4">
+        About {{ params.name }}
+    </h2>
+
+    <p class="spiritual-text about-text mx-auto">
+        {{ params.about_description }}
+    </p>
+</div>
+
+{% endblock %}

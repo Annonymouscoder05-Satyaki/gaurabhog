@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Home - {{ params.name }}{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title mb-4 text-center">Latest items</h2>
+
+<div class="row g-4 justify-content-center">
+    {% for bhog in bhog[:6] %}
+        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+            <a href="{{ url_for('bhog.view_bhog', bhog_id=bhog.bhog_id) }}" class="bhog-link">
+                <div class="bhog-card">
+                    <img src="{{ bhog.bhog_image }}" class="bhog-img" alt="{{ bhog.bhog_title }}">
+                    <div class="bhog-body">
+                        <h5 class="bhog-title">{{ bhog.bhog_title }}</h5>
+                        <p class="bhog-desc">{{ bhog.bhog_description[:45] }}.....</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

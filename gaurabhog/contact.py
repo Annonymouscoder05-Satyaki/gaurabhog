@@ -31,13 +31,13 @@ def contact():
 
         # ---- Brevo API Setup ----
         configuration = Configuration()
-        configuration.api_key = {'api-key': os.getenv('BREVO_API_KEY')} 
+        configuration.api_key = {'api-key': os.getenv('brevo_api_key')} 
 
         api_instance = sib_api_v3_sdk.TransactionalEmailsApi(ApiClient(configuration))
 
         email_to_admin = sib_api_v3_sdk.SendSmtpEmail(
-            sender={"name": "gaurabhog(noreply)", "email": os.getenv('VERIFIED_SENDER')},
-            to=[{"email": os.getenv('ADMIN_EMAIL'), "name": "Admin"}],
+            sender={"name": "GauraBhog(noreply)", "email": os.getenv('verified_sender')},
+            to=[{"email": os.getenv('admin_email'), "name": "Admin"}],
             subject=subject,
             html_content=f"""
                 <h3>New Contact Form Message</h3>

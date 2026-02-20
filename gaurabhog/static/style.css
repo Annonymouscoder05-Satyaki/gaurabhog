@@ -1,0 +1,379 @@
+/* =============================
+   GauraBhog / Bakery Website CSS
+   Professional, Responsive, Modern
+   ============================= */
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+    --primary: #1f2937;          /* charcoal */
+    --secondary: #374151;        /* soft dark */
+    --accent: #c2410c;           /* muted terracotta */
+    --accent-light: #ea580c;
+    --background: #f9fafb;       /* clean light */
+    --card: #ffffff;
+    --text: #111827;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+
+    --radius: 12px;
+    --radius-lg: 18px;
+
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+
+    --transition: all 0.25s ease;
+}
+
+
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+
+/* ===== NAVBAR ===== */
+.spiritual-navbar {
+    background: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    color: #e5e7eb !important;
+    font-weight: 500;
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.08);
+    color: white !important;
+}
+
+
+/* ===== FOOTER ===== */
+.spiritual-footer {
+    background: var(--primary);
+    color: #e5e7eb;
+}
+
+.footer-text {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.social-icon {
+    color: #e5e7eb;
+    font-size: 1.4rem;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    color: var(--accent-light);
+    transform: translateY(-3px);
+}
+
+
+/* ===== CARDS ===== */
+.login-card,
+.register-card,
+.contact-card {
+    background: var(--card);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 420px;
+    margin: 40px auto;
+}
+
+.contact-card {
+    max-width: 600px;
+}
+
+
+/* ===== FORM ELEMENTS ===== */
+.form-control {
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(194,65,12,0.1);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+
+/* ===== BUTTON ===== */
+.btn-spiritual {
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-spiritual:hover {
+    background: var(--secondary);
+    transform: translateY(-1px);
+}
+
+.btn-spiritual:active {
+    transform: translateY(0);
+}
+
+
+/* ===== TITLES ===== */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    max-width: 700px;
+}
+
+.about-text {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+
+/* ===== AUTH PAGE CENTERING ===== */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .login-card,
+    .register-card {
+        margin: 20px;
+        padding: 28px;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .login-card,
+    .register-card,
+    .contact-card {
+        padding: 24px;
+        margin: 16px;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .login-card,
+    .register-card,
+    .contact-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+}
+
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+
+    .container {
+        max-width: 1300px;
+    }
+
+}
+
+
+/* ===== SMOOTH ANIMATIONS ===== */
+.login-card,
+.register-card,
+.contact-card {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===== UTILITIES ===== */
+.text-muted {
+    color: var(--text-light) !important;
+}
+
+
+/* Prevent overflow issues */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Better mobile tap targets */
+button,
+a {
+    min-height: 42px;
+}
+
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ============================= */
+/* BREADCRUMB */
+/* ============================= */
+
+.breadcrumb-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 14px 22px;
+
+    margin-bottom: 25px;
+
+    background: rgba(255,255,255,0.05);
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 14px;
+
+}
+
+
+/* links */
+
+.breadcrumb-container a {
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+
+}
+
+.breadcrumb-container a:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* separator */
+
+.breadcrumb-separator {
+
+    color: #64748b;
+
+}
+
+
+/* current page */
+
+.breadcrumb-current {
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+}
+
+
+/* mobile responsive */
+
+@media (max-width: 768px) {
+
+    .breadcrumb-container {
+
+        font-size: 13px;
+
+        padding: 12px 16px;
+
+        border-radius: 16px;
+
+    }
+
+}
+

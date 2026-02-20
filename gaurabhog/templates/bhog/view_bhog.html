@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}{{ course.course_title }} - {{ params.name }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <!-- BREADCRUMB -->
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb spiritual-breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('bhog.index') }}">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('bhog.bhog') }}">Courses</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{ bhog.bhog_title }}
+      </li>
+    </ol>
+  </nav>
+
+  <!-- COURSE INFO CARD -->
+  <div class="admin-panel mb-5">
+    <h2 class="text-center mb-4">{{ bhog.bhog_title }}</h2>
+
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <p><strong>Course ID :</strong> {{ bhog.bhog_id }}</p>
+        <p class="mt-3 form-text summary-text">{{ bhog.bhog_description }}</p>
+      </div>
+
+      <div class="col-md-4 text-center">
+        {% if bhog.bhog_image %}
+        <img src="{{ bhog.bhog_image }}"
+             class="img-fluid rounded shadow"
+             style="max-height:220px;">
+        {% else %}
+        <p class="form-text">No Image Available</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+ 
