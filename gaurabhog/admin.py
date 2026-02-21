@@ -62,7 +62,7 @@ def delete_user(user_id):
 @bp.route('/bhog')
 @admin_required
 def manage_bhog():
-    bhog = query_all('SELECT bid, bhog_id, bhog_title, bhog_description FROM bhog ORDER BY bid ASC')
+    bhog = query_all('SELECT bid, bhog_id, bhog_title, bhog_description,bhog_image,price,status FROM bhog ORDER BY bid ASC')
     return render_template('admin/bhog/manage_bhog.html', bhog=bhog, params=params)
 
 
@@ -93,12 +93,14 @@ def add_bhog():
         bhog_title = request.form['bhog_title']
         bhog_description = request.form['bhog_description']
         bhog_image = request.files['bhog_image']
+        price=request.form['price']
+        status=request.form['status']
 
         image_url = upload_bhog_image(bhog_image)
 
         query(
-            'INSERT INTO bhog (bhog_id, bhog_title, bhog_description, bhog_image) VALUES (%s, %s, %s, %s)',
-            (bhog_id, bhog_title, bhog_description, image_url)
+            'INSERT INTO bhog (bhog_id, bhog_title, bhog_description, bhog_image,price,status) VALUES (%s, %s, %s, %s,%s,%s)',
+            (bhog_id, bhog_title, bhog_description, image_url,price,status)
         )
         flash('bhog added successfully.')
         return redirect(url_for('admin.manage_bhog'))
@@ -109,12 +111,14 @@ def add_bhog():
 @bp.route('/edit_bhog/<int:bid>', methods=('GET', 'POST'))
 @admin_required
 def edit_bhog(bid):
-    bhog = query_one('SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image FROM bhog WHERE bid = %s', (bid,))
+    bhog = query_one('SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image,price,status FROM bhog WHERE bid = %s', (bid,))
     if request.method == 'POST':
         bhog_id = request.form['bhog_id']
         bhog_title = request.form['bhog_title']
         bhog_description = request.form['bhog_description']
         bhog_image = request.files['bhog_image']
+        price=request.form['price']
+        status=request.form['status']
 
         if bhog_image:
             delete_bhog_image(bhog['bhog_image'])
@@ -123,8 +127,8 @@ def edit_bhog(bid):
             new_bhog_image = bhog['bhog_image']
 
         query(
-            'UPDATE bhog SET bhog_id = %s, bhog_title = %s, bhog_description = %s, bhog_image = %s WHERE bid = %s',
-            (bhog_id, bhog_title, bhog_description, new_bhog_image, bid)
+            'UPDATE bhog SET bhog_id = %s, bhog_title = %s, bhog_description = %s, bhog_image = %s, price= %s, status= %s WHERE bid = %s',
+            (bhog_id, bhog_title, bhog_description, new_bhog_image,price,status, bid)
         )
         flash('bhog updated successfully.')
         return redirect(url_for('admin.manage_bhog'))

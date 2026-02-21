@@ -33,7 +33,7 @@ def bhog():
 
 @bp.route('/bhog/<string:bhog_id>/view')
 def view_bhog(bhog_id):
-    bhog = query_one('SELECT * FROM bhogs WHERE bhog_id = %s', (bhog_id,))
+    bhog = query_one('SELECT * FROM bhog WHERE bhog_id = %s', (bhog_id,))
     if bhog is None:
         abort(404, f"bhog id {bhog_id} doesn't exist.")
     return render_template('bhog/view_bhog.html', bhog=bhog, params=params)

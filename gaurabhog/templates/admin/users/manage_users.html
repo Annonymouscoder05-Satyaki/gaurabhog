@@ -1,0 +1,48 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}Manage Users | Admin{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title my-4">Manage Users</h2>
+
+<div class="table-responsive">
+  <table class="table table-dark table-hover align-middle spiritual-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>User Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td class="text-muted">******</td>
+        <td>{{ user.email }}</td>
+        <td>
+          {% if user.admin %}
+            <span class="badge bg-success mb-2">Admin</span><br>
+            <a href="{{ url_for('admin.demote_user', user_id=user.id) }}"
+               class="btn btn-warning btn-sm">
+               Demote
+            </a>
+          {% else %}
+            <span class="badge bg-secondary mb-2">User</span><br>
+            <a href="{{ url_for('admin.promote_user', user_id=user.id) }}"
+               class="btn btn-warning btn-sm">
+               Promote
+            </a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

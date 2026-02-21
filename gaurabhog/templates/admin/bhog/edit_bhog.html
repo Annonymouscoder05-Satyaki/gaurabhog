@@ -1,0 +1,181 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}Edit Bhog | Admin{% endblock %}
+
+{% block content %}
+<div>
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb spiritual-breadcrumb">
+
+            <li class="breadcrumb-item">
+                <a href="{{ url_for('bhog.index') }}">Home</a>
+            </li>
+
+            <li class="breadcrumb-item">
+                <a href="{{ url_for('admin.dashboard') }}">Admin</a>
+            </li>
+
+            <li class="breadcrumb-item">
+                <a href="{{ url_for('admin.manage_bhog') }}">Manage Bhog</a>
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ bhog.bhog_title }}
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">
+                Edit Bhog
+            </li>
+
+        </ol>
+    </nav>
+</div>
+
+
+<div class="row justify-content-center my-5">
+    <div class="col-md-8">
+
+        <div class="admin-panel">
+
+            <h2 class="mb-4 text-center">Edit Bhog</h2>
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                <!-- Bhog ID -->
+                <div class="mb-3">
+                    <label class="form-label">Bhog ID</label>
+
+                    <input type="text"
+                           class="form-control spiritual-input"
+                           name="bhog_id"
+                           value="{{ bhog.bhog_id }}"
+                           required>
+                </div>
+
+
+                <!-- Bhog Title -->
+                <div class="mb-3">
+                    <label class="form-label">Bhog Title</label>
+
+                    <input type="text"
+                           class="form-control spiritual-input"
+                           name="bhog_title"
+                           value="{{ bhog.bhog_title }}"
+                           required>
+                </div>
+
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label class="form-label">Price (₹)</label>
+
+                    <input type="number"
+                           step="0.01"
+                           class="form-control spiritual-input"
+                           name="price"
+                           value="{{ bhog.price }}"
+                           required>
+                </div>
+
+
+                <!-- Status -->
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+
+                    <select class="form-control spiritual-input"
+                            name="status"
+                            required>
+
+                        <option value="Available"
+                        {% if bhog.status == "Available" %}selected{% endif %}>
+                            Available
+                        </option>
+
+                        <option value="Not Available"
+                        {% if bhog.status == "Not Available" %}selected{% endif %}>
+                            Not Available
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+
+                    <textarea class="form-control summary-text"
+                              name="bhog_description"
+                              rows="4"
+                              required>{{ bhog.bhog_description }}</textarea>
+                </div>
+
+
+                <!-- Current Image -->
+                <div class="mb-3">
+
+                    <label class="form-label">Current Image</label>
+
+                    <br>
+
+                    {% if bhog.bhog_image %}
+
+                        <img src="{{ bhog.bhog_image }}"
+                             alt="Bhog Image"
+                             class="img-fluid rounded mb-2"
+                             style="max-height:180px;">
+
+                    {% else %}
+
+                        <p class="form-text">No image uploaded</p>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Replace Image -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Replace Image (optional)
+                    </label>
+
+                    <input type="file"
+                           class="form-control spiritual-input"
+                           name="bhog_image"
+                           accept="image/*">
+
+                </div>
+
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between mt-4">
+
+                    <a href="{{ url_for('admin.manage_bhog') }}"
+                       class="btn btn-secondary px-4">
+
+                        Cancel
+
+                    </a>
+
+
+                    <button type="submit"
+                            class="btn btn-success px-4">
+
+                        Update Bhog
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

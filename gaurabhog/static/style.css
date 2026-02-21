@@ -1,379 +1,434 @@
-/* =============================
-   GauraBhog / Bakery Website CSS
-   Professional, Responsive, Modern
-   ============================= */
-
-/* ===== ROOT VARIABLES ===== */
-:root {
-    --primary: #1f2937;          /* charcoal */
-    --secondary: #374151;        /* soft dark */
-    --accent: #c2410c;           /* muted terracotta */
-    --accent-light: #ea580c;
-    --background: #f9fafb;       /* clean light */
-    --card: #ffffff;
-    --text: #111827;
-    --text-light: #6b7280;
-    --border: #e5e7eb;
-
-    --radius: 12px;
-    --radius-lg: 18px;
-
-    --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
-    --shadow-md: 0 8px 20px rgba(0,0,0,0.08);
-    --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
-
-    --transition: all 0.25s ease;
-}
-
-
-/* ===== GLOBAL RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* ===== Global Page Style ===== */
 body {
-    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: #e8e8e8;
 }
 
-.container {
-    max-width: 1200px;
+/* Only center login/register */
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
+/* ===== Card Containers ===== */
+.login-card,
+.register-card,
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    color: #e8e8e8;
+}
 
-/* ===== NAVBAR ===== */
+.admin-panel {
+    max-width: 100%;
+    margin: auto;
+    padding: 15px;
+}
+
+/* ===== Headings ===== */
+.login-card h2,
+.register-card h2,
+.contact-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ===== Labels ===== */
+.form-label {
+    color: #f1f1f1;
+    font-weight: 500;
+}
+
+/* ===== Inputs ===== */
+.form-control {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #777;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+    border-color: #9c7c38;
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: #b5b5b5;
+}
+
+/* ===== Buttons ===== */
+.btn-spiritual {
+    background: linear-gradient(135deg, #b8860b, #ffd700);
+    border: none;
+    color: #1a1a1a;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-spiritual:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+}
+
+/* ===== Text & Links ===== */
+.form-text {
+    color: #d0d0d0;
+}
+
+.form-text a {
+    color: #ffcc33;
+    text-decoration: none;
+}
+
+.form-text a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Navbar ===== */
 .spiritual-navbar {
-    background: var(--primary);
-    box-shadow: var(--shadow-sm);
+    background: #2a1f0f; /* warmer dark-brown tone */
+    border-bottom: 1px solid rgba(255,215,0,0.15);
+    backdrop-filter: blur(10px);
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #ffd700 !important;
+    letter-spacing: 1px;
 }
 
 .nav-link {
-    color: #e5e7eb !important;
-    font-weight: 500;
-    padding: 8px 14px !important;
-    border-radius: 8px;
-    transition: var(--transition);
+    color: #e0e0e0 !important;
+    margin-left: 10px;
+    font-size: 1.05rem;
+    padding-bottom: 6px;
+    transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-    background: rgba(255,255,255,0.08);
-    color: white !important;
+    color: #ffdd77 !important;
 }
 
 
-/* ===== FOOTER ===== */
+
+/* ===== Footer ===== */
 .spiritual-footer {
-    background: var(--primary);
-    color: #e5e7eb;
+    background: #1a130a;
+    color: #f2e6c9;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 .footer-text {
-    color: var(--text-light);
+    margin-top: 1rem;
+    opacity: 0.85;
     font-size: 0.95rem;
 }
 
 .social-icon {
-    color: #e5e7eb;
-    font-size: 1.4rem;
-    transition: var(--transition);
+    font-size: 1.8rem;
+    color: #ffdd77;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .social-icon:hover {
-    color: var(--accent-light);
-    transform: translateY(-3px);
+    transform: scale(1.15);
+    color: #ffffff;
 }
 
-
-/* ===== CARDS ===== */
-.login-card,
-.register-card,
-.contact-card {
-    background: var(--card);
-    padding: 32px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    max-width: 420px;
-    margin: 40px auto;
+/* ===== Course Card ===== */
+.course-link {
+    text-decoration: none;
+    color: inherit;
 }
 
-.contact-card {
-    max-width: 600px;
+.course-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-
-/* ===== FORM ELEMENTS ===== */
-.form-control {
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    transition: var(--transition);
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.form-control:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(194,65,12,0.1);
+.course-img-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
 }
 
-.form-label {
-    font-weight: 500;
+.course-img,
+.course-image-responsive {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 10px;
+}
+
+.course-body {
+    padding: 12px 15px;
+}
+
+.course-title {
+    font-size: 1.1rem;
     margin-bottom: 6px;
-}
-
-
-/* ===== BUTTON ===== */
-.btn-spiritual {
-    background: var(--primary);
-    color: white;
-    padding: 10px;
-    border-radius: var(--radius);
-    border: none;
     font-weight: 600;
-    transition: var(--transition);
+    color: #ffd700;
 }
 
-.btn-spiritual:hover {
-    background: var(--secondary);
-    transform: translateY(-1px);
+.course-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
-.btn-spiritual:active {
-    transform: translateY(0);
-}
-
-
-/* ===== TITLES ===== */
+/* Section title */
 .section-title {
-    font-size: 2rem;
+    color: #fcd46a;
     font-weight: 700;
-    margin-bottom: 16px;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
 }
 
-
-/* ===== ABOUT SECTION ===== */
+/* About Section */
 .about-section {
-    max-width: 700px;
+    max-width: 800px;
 }
 
 .about-text {
-    color: var(--text-light);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    text-align: justify;
 }
 
+/* ===== Breadcrumb ===== */
+.spiritual-breadcrumb {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 12px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(8px);
+}
 
-/* ===== AUTH PAGE CENTERING ===== */
-.auth-page {
+.spiritual-breadcrumb .breadcrumb-item a {
+    color: #ffcc66;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.spiritual-breadcrumb .breadcrumb-item a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+.spiritual-breadcrumb .breadcrumb-item.active {
+    color: #e8e8e8;
+    font-weight: 600;
+}
+
+.spiritual-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    color: #b8860b;
+    font-size: 18px;
+}
+
+/* ===== Lecture Sidebar ===== */
+.lecture-sidebar {
+    color: #FFD700;
+    background-color: #1a1a1a !important;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.lecture-list .list-group-item {
+    background-color: transparent;
+    color: #FFD700;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: 0.2s ease;
+}
+
+.lecture-list .list-group-item:hover {
+    background-color: rgba(255, 204, 51, 0.2);
+    color: #FFD700;
+}
+
+.lecture-list .active {
+    background-color: #D4A03F !important;
+    color: #1a1a1a !important;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.lecture-list .small.text-muted {
+    color: #EFD284 ;
+}
+
+.lecture-list .small.text-muted.not-active {
+    color: #f5f1e8 !important;
+    opacity: 0.85;
+}
+
+/* ===== Table Mobile Responsiveness ===== */
+.table-mobile-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive-stacked thead {
+    display: none;
+}
+
+.table-responsive-stacked tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.table-responsive-stacked td {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.95rem;
 }
 
+.table-responsive-stacked td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #ffd86c;
+}
 
-/* ===== RESPONSIVE ===== */
+.table-responsive-stacked td a {
+    width: 100%;
+}
 
-/* Tablet */
+/* lecture summary  */
+.summary-text {
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 992px) {
-
-    .section-title {
-        font-size: 1.7rem;
+    .lecture-sidebar {
+        max-height: none;
+        margin-top: 1rem;
     }
-
-    .login-card,
-    .register-card {
-        margin: 20px;
-        padding: 28px;
-    }
-
 }
 
-
-/* Mobile */
 @media (max-width: 768px) {
-
-    .navbar-brand {
-        font-size: 1.3rem;
+    main.container {
+        padding: 0 1rem;
     }
 
-    .section-title {
+    .admin-panel {
+        padding: 15px;
+    }
+
+    .course-table td,
+    .course-table th {
+        font-size: 0.9rem;
+        padding: 8px 6px;
+    }
+
+    .contact-card {
+        padding: 25px;
+        margin: 1rem;
+    }
+
+    .contact-card h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .btn-spiritual {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    /* Stack buttons */
+    .btn-sm {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-collapse {
+        background-color: #2a1f0f;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .social-icon {
         font-size: 1.5rem;
     }
 
-    .login-card,
-    .register-card,
+    .navbar-nav .nav-link {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .footer-text {
+        font-size: 0.85rem;
+    }
+
+    .course-img-wrapper {
+        height: 150px;
+    }
+
+    .course-img,
+    .course-image-responsive {
+        object-fit: contain;
+        max-height: 200px;
+        background: #000;
+        object-position: center center;
+    }
+
+    .course-card {
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    .course-title {
+        font-size: 1rem;
+    }
+
+    .course-desc {
+        font-size: 0.85rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+
     .contact-card {
-        padding: 24px;
-        margin: 16px;
+        padding: 15px;
     }
 
-    .container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-}
-
-
-/* Small Mobile */
-@media (max-width: 480px) {
-
-    .section-title {
-        font-size: 1.3rem;
-    }
-
-    .login-card,
-    .register-card,
-    .contact-card {
-        padding: 20px;
-        border-radius: 14px;
+    .btn-spiritual {
+        font-size: 0.9rem;
+        padding: 6px;
+        width: 100%;
     }
 
 }
-
-
-/* Large Desktop */
-@media (min-width: 1400px) {
-
-    .container {
-        max-width: 1300px;
-    }
-
-}
-
-
-/* ===== SMOOTH ANIMATIONS ===== */
-.login-card,
-.register-card,
-.contact-card {
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* ===== UTILITIES ===== */
-.text-muted {
-    color: var(--text-light) !important;
-}
-
-
-/* Prevent overflow issues */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* Better mobile tap targets */
-button,
-a {
-    min-height: 42px;
-}
-
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-
-/* ============================= */
-/* BREADCRUMB */
-/* ============================= */
-
-.breadcrumb-container {
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 14px 22px;
-
-    margin-bottom: 25px;
-
-    background: rgba(255,255,255,0.05);
-
-    border-radius: 50px;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    font-size: 14px;
-
-}
-
-
-/* links */
-
-.breadcrumb-container a {
-
-    color: #cbd5e1;
-
-    text-decoration: none;
-
-    transition: 0.2s ease;
-
-}
-
-.breadcrumb-container a:hover {
-
-    color: #ffffff;
-
-}
-
-
-/* separator */
-
-.breadcrumb-separator {
-
-    color: #64748b;
-
-}
-
-
-/* current page */
-
-.breadcrumb-current {
-
-    color: #ffffff;
-
-    font-weight: 600;
-
-}
-
-
-/* mobile responsive */
-
-@media (max-width: 768px) {
-
-    .breadcrumb-container {
-
-        font-size: 13px;
-
-        padding: 12px 16px;
-
-        border-radius: 16px;
-
-    }
-
-}
-
