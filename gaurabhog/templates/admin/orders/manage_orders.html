@@ -1,0 +1,90 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}Manage Orders | Admin{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title mb-4">Manage Orders</h2>
+
+<div class="table-responsive">
+
+<table class="table table-dark table-hover align-middle spiritual-table">
+
+<thead>
+<tr>
+
+<th>ID</th>
+<th>User</th>
+<th>Bhog</th>
+<th>Qty</th>
+<th>Total</th>
+<th>Phone</th>
+<th>Status</th>
+<th>Confirmed</th>
+<th>Date</th>
+
+</tr>
+</thead>
+
+<tbody>
+
+{% for order in orders %}
+<tr>
+
+<td>{{ order.id }}</td>
+
+<td>
+{{ order.username }}<br>
+<small class="text-muted">{{ order.email }}</small>
+</td>
+
+<td class="d-flex align-items-center gap-2">
+
+<img src="{{ order.bhog_image }}"
+width="50"
+class="rounded">
+
+{{ order.bhog_title }}
+
+</td>
+
+<td>{{ order.quantity }}</td>
+
+<td class="text-success fw-bold">
+₹ {{ order.total_price }}
+</td>
+
+<td>{{ order.phone }}</td>
+
+<td>
+
+<span class="badge bg-warning text-dark">
+{{ order.status }}
+</span>
+
+</td>
+
+<td>
+
+{% if order.is_confirmed %}
+<span class="badge bg-success">Confirmed</span>
+{% else %}
+<span class="badge bg-danger">Pending</span>
+{% endif %}
+
+</td>
+
+<td>
+{{ order.created_at }}
+</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

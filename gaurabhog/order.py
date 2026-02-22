@@ -132,10 +132,12 @@ def my_orders():
     )
 
     return render_template(
-        "order/order.html",
+        "order/my_orders.html",
         orders=orders,
         params=params
     )
+
+
 
 
 # ==========================

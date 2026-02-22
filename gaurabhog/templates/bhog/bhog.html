@@ -7,33 +7,56 @@
 
 <div class="row g-4 justify-content-center">
     {% for bhog in bhog[:6] %}
-        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
 
-            <div class="bhog-card">
+        <div class="bhog-card">
 
-                <a href="{{ url_for('bhog.view_bhog', bhog_id=bhog.bhog_id) }}" class="bhog-link">
-                    <img src="{{ bhog.bhog_image }}" class="bhog-img">
-                </a>
+            <!-- IMAGE WITH BLUR BACKGROUND -->
+            <div class="bhog-img-wrapper">
 
-                <div class="bhog-body text-center">
+                <img src="{{ bhog.bhog_image }}" class="bhog-img-bg">
 
-                    <h5 class="bhog-title">{{ bhog.bhog_title }}</h5>
+                <img src="{{ bhog.bhog_image }}" class="bhog-img">
 
-                    <p class="bhog-desc">
-                        {{ bhog.bhog_description[:45] }}.....
-                    </p>
+            </div>
 
-                    <!-- ORDER BUTTON -->
-                    <a href="{{ url_for('order.order', bhog_id=bhog.bhog_id) }}"
-                       class="btn btn-spiritual w-100 mt-2">
-                        Order Now
-                    </a>
+            <!-- BODY -->
+            <div class="bhog-body">
 
+                <h5 class="bhog-title">
+                    {{ bhog.bhog_title }}
+                </h5>
+
+                <p class="bhog-desc">
+                    {{ bhog.bhog_description[:50] }}...
+                </p>
+
+                <!-- PRICE -->
+                <div class="bhog-price mb-2">
+                    ₹{{ bhog.price }} per unit
                 </div>
+
+                <!-- STATUS -->
+                {% if bhog.status == "Available" %}
+                <span class="bhog-status status-available">
+                    Available
+                </span>
+                {% else %}
+                <span class="bhog-status status-unavailable">
+                    Out of Stock
+                </span>
+                {% endif %}
+
+                <!-- ORDER BUTTON -->
+                <a href="{{ url_for('order.order', bhog_id=bhog.bhog_id) }}" class="btn btn-spiritual w-100 mt-3">
+                    Order Now
+                </a>
 
             </div>
 
         </div>
+
+    </div>
     {% endfor %}
 </div>
 

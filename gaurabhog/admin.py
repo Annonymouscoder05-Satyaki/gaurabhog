@@ -135,4 +135,46 @@ def edit_bhog(bid):
 
     return render_template('admin/bhog/edit_bhog.html', bhog=bhog, params=params)
 
+# ================================
+# ORDER MANAGEMENT (ADMIN)
+# ================================
+
+@bp.route('/orders')
+@admin_required
+def manage_orders():
+
+    orders = query_all(
+        """
+        SELECT
+            o.id,
+            o.quantity,
+            o.total_price,
+            o.address,
+            o.phone,
+            o.status,
+            o.is_confirmed,
+            o.confirmation_token,
+            o.created_at,
+
+            u.username,
+            u.email,
+
+            b.bhog_title,
+            b.bhog_image
+
+        FROM orders o
+
+        JOIN users u ON o.user_id = u.id
+        JOIN bhog b ON o.bhog_id = b.bhog_id
+
+        ORDER BY o.id DESC
+        """
+    )
+
+    return render_template(
+        'admin/orders/manage_orders.html',
+        orders=orders,
+        params=params
+    )
+
 

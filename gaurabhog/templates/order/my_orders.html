@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}My Orders | GauraBhog{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title mb-4 text-center">
+My Orders
+</h2>
+
+<div class="row g-4">
+
+{% for order in orders %}
+
+<div class="col-lg-4 col-md-6">
+
+<div class="card spiritual-card h-100">
+
+<img src="{{ order.bhog_image }}"
+class="card-img-top">
+
+<div class="card-body">
+
+<h5>{{ order.bhog_title }}</h5>
+
+<p>
+
+Quantity: {{ order.quantity }}<br>
+
+Total:
+<span class="text-success fw-bold">
+₹ {{ order.total_price }}
+</span>
+
+</p>
+
+<p>
+
+Phone: {{ order.phone }}<br>
+
+Status:
+
+{% if order.is_confirmed %}
+<span class="badge bg-success">
+Confirmed
+</span>
+{% else %}
+<span class="badge bg-warning text-dark">
+Pending Confirmation
+</span>
+{% endif %}
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

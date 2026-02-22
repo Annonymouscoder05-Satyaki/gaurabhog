@@ -26,6 +26,11 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('admin.manage_users') }}">Users</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('admin.manage_bhog') }}">Manage Bhog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.manage_orders') }}">
+                            Manage Orders
+                        </a>
+                    </li>
                     <!-- LOGOUT BUTTON -->
                     <li class="nav-item">
                         <a class="nav-link text-danger fw-bold" href="{{ url_for('auth.logout') }}">

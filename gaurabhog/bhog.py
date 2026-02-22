@@ -14,7 +14,7 @@ params = get_params()
 @bp.route('/')
 def index():
     bhog = query_all(
-        'SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image'
+        'SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image, price, status'
         ' FROM bhog'
         ' ORDER BY bid DESC'
     )
@@ -24,8 +24,7 @@ def index():
 @bp.route('/bhog')
 def bhog():
     bhog = query_all(
-        'SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image'
-        ' FROM bhog'
+        'SELECT bid, bhog_id, bhog_title, bhog_description, bhog_image, status, price FROM bhog'
         ' ORDER BY bid ASC'
     )
     return render_template('bhog/bhog.html', bhog=bhog, params=params)
