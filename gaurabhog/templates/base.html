@@ -49,10 +49,22 @@
                         </a>
                     </li>
                     <!-- LOGOUT BUTTON -->
+                    {% if session.get('user_id') %}
+
+                    <li class="nav-item">
+                        <span class="nav-link text-warning">
+                            <i class="fas fa-user"></i> {{ session.get('user_name') }}
+                        </span>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-danger fw-bold" href="{{ url_for('auth.logout') }}">
-                            <i class="fas fa-sign-out-alt"></i> Logout</a>
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
                     </li>
+
+                    {% endif %}
+
                 </ul>
             </div>
         </div>

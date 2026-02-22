@@ -99,7 +99,7 @@ def login():
 
             session.clear()
             session['user_id'] = user['id']
-
+            session['user_name']=user['username']
             
             next_page = request.args.get("next")
 
