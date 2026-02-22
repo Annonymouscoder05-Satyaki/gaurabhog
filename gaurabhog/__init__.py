@@ -45,6 +45,9 @@ def create_app(test_config=None):
     app.register_blueprint(bhog.bp)
     app.add_url_rule('/',endpoint='index')
 
+    from . import order
+    app.register_blueprint(order.bp)
+
     #route for about page
     @app.route('/about')
     def about():
