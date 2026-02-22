@@ -685,3 +685,23 @@ textarea.spiritual-input {
     }
 
 }
+
+.view-link {
+    font-size: 0.9rem;
+    color: #ffd700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.status-row {
+    padding: 0 8px;
+}
+
+.view-link {
+    margin-left: 12px;
+}
