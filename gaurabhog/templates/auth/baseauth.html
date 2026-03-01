@@ -11,5 +11,25 @@
 </head>
 <body class="auth-page">
 {% block content %}{% endblock %}
+<script>
+function togglePassword(fieldId, element)
+{
+    const passwordField = document.getElementById(fieldId);
+    const icon = element.querySelector("i");
+
+    if (passwordField.type === "password")
+    {
+        passwordField.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }
+    else
+    {
+        passwordField.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }
+}
+</script>
 </body>
 </html>

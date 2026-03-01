@@ -9,7 +9,7 @@ import os
 from gaurabhog.db import query, query_one, query_all
 from gaurabhog.auth import admin_required
 from gaurabhog import get_params
-from gaurabhog.supabase_client import upload_bhog_image, delete_bhog_image
+from gaurabhog.cloudinary_client import upload_bhog_image, delete_bhog_image
 
 
 bp = Blueprint('admin', __name__, url_prefix='/admin')

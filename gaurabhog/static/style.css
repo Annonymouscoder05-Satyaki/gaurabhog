@@ -24,7 +24,7 @@ body {
     padding: 35px;
     max-width: 450px;
     width: 100%;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     color: #e8e8e8;
 }
 
@@ -52,13 +52,13 @@ body {
 
 /* ===== Inputs ===== */
 .form-control {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid #777;
     color: #ffffff;
 }
 
 .form-control:focus {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
     border-color: #9c7c38;
     box-shadow: none;
@@ -81,7 +81,7 @@ body {
 
 .btn-spiritual:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
 /* ===== Text & Links ===== */
@@ -100,8 +100,9 @@ body {
 
 /* ===== Navbar ===== */
 .spiritual-navbar {
-    background: #2a1f0f; /* warmer dark-brown tone */
-    border-bottom: 1px solid rgba(255,215,0,0.15);
+    background: #2a1f0f;
+    /* warmer dark-brown tone */
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
     backdrop-filter: blur(10px);
 }
 
@@ -203,7 +204,7 @@ body {
 .section-title {
     color: #fcd46a;
     font-weight: 700;
-    text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 
 /* About Section */
@@ -241,7 +242,7 @@ body {
     font-weight: 600;
 }
 
-.spiritual-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+.spiritual-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
     content: "›";
     color: #b8860b;
     font-size: 18px;
@@ -259,7 +260,7 @@ body {
     background-color: transparent;
     color: #FFD700;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: 0.2s ease;
 }
 
@@ -276,7 +277,7 @@ body {
 }
 
 .lecture-list .small.text-muted {
-    color: #EFD284 ;
+    color: #EFD284;
 }
 
 .lecture-list .small.text-muted.not-active {
@@ -436,10 +437,10 @@ body {
 /* ===== Spiritual Card Fix ===== */
 
 .spiritual-card {
-    background: rgba(255,255,255,0.06);
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,215,0,0.15);
+    border: 1px solid rgba(255, 215, 0, 0.15);
     color: #ffffff;
 }
 
@@ -448,7 +449,7 @@ body {
 
 .spiritual-input {
 
-    background: rgba(0,0,0,0.55) !important;
+    background: rgba(0, 0, 0, 0.55) !important;
     color: #ffffff !important;
 
     border: 1px solid #b8860b;
@@ -469,13 +470,13 @@ body {
 
 .spiritual-input:focus {
 
-    background: rgba(0,0,0,0.75) !important;
+    background: rgba(0, 0, 0, 0.75) !important;
 
     color: #ffffff !important;
 
     border-color: #ffd700;
 
-    box-shadow: 0 0 8px rgba(255,215,0,0.4);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 
 }
 
@@ -492,11 +493,11 @@ textarea.spiritual-input {
 
 .spiritual-alert {
 
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 
     color: #ffd700;
 
-    border: 1px solid rgba(255,215,0,0.25);
+    border: 1px solid rgba(255, 215, 0, 0.25);
 
 }
 
@@ -521,11 +522,11 @@ textarea.spiritual-input {
     width: 100%;
     max-width: 320px;
 
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 18px;
 
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,215,0,0.15);
+    border: 1px solid rgba(255, 215, 0, 0.15);
 
     overflow: hidden;
 
@@ -536,7 +537,7 @@ textarea.spiritual-input {
 .bhog-card:hover {
 
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 
 }
 
@@ -641,14 +642,14 @@ textarea.spiritual-input {
 
 .status-available {
 
-    background: rgba(0,255,0,0.15);
+    background: rgba(0, 255, 0, 0.15);
     color: #00ff99;
 
 }
 
 .status-unavailable {
 
-    background: rgba(255,0,0,0.15);
+    background: rgba(255, 0, 0, 0.15);
     color: #ff7777;
 
 }
@@ -661,7 +662,7 @@ textarea.spiritual-input {
 
     inset: 0;
 
-    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.6));
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.6));
 
     z-index: 1;
 
@@ -704,4 +705,12 @@ textarea.spiritual-input {
 
 .view-link {
     margin-left: 12px;
+}
+.input-group-text {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+}
+
+.input-group-text i {
+    color: #ffd700;  /* golden eye icon 🔥 */
 }
